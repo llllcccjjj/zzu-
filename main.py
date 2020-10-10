@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import requests
-token = process.env.PLUS_KEY
+token = secrets.PLUS_KEY
 def dk(user,pas):
     try:
         # 模拟浏览器打开网站
