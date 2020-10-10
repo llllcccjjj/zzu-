@@ -5,7 +5,6 @@ def dk(user,pas):
     option = webdriver.ChromeOptions()
     option.add_argument('--headless')
     option.add_argument('--no-sandbox')
-    driver = webdriver.Chrome(chrome_options=option)
     driver = webdriver.Chrome()
     driver.get("https://jksb.v.zzu.edu.cn/vls6sss/zzujksb.dll/first0")
     driver.implicitly_wait(10)
