@@ -34,3 +34,5 @@ jobs:
               && chromedriver --version
         - name: 'Get Date'
           run: echo "::set-env name=REPORT_DATE::$(TZ=':Asia/Shenzhen' date '+%Y-%m-%d %T')"
+        - name: 'AutoClick'
+          run: main.py
