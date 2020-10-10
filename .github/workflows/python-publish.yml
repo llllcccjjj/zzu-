@@ -6,8 +6,6 @@ on:
   push:
   schedule:
     - cron: '0 21 * * *'
-env: 
-   PLUS_KEY: ${{ secrets.PLUS_KEY }}
 jobs:
   bot:
     runs-on: ubuntu-latest
@@ -36,4 +34,6 @@ jobs:
         - name: 'Get Date'
           run: echo "::set-env name=REPORT_DATE::$(TZ=':Asia/Shenzhen' date '+%Y-%m-%d %T')"
         - name: 'AutoClick'
+          env: 
+              PLUS_KEY: ${{ secrets.PLUS_KEY }}
           run: python3 main.py
