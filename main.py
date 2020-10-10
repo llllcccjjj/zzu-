@@ -3,6 +3,8 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import requests
 token=os.environ['PLUS_KEY']
+s_name=os.environ['S_NAME']
+s_pwd=os.environ['S_PWD']
 def dk(user,pas):
     try:
         # 模拟浏览器打开网站
@@ -25,7 +27,6 @@ def dk(user,pas):
     except:
         driver.quit()
         print("执行失败!")
-        #token = '39ece89f3624407995a957b2d058b4d5' #在push+网站中可以找到
         title= '打卡执行情况' #改成你要的标题内容
         content ='执行失败' #改成你要的正文内容
         url = 'http://pushplus.hxtrip.com/customer/push/send?token='+token+'&title='+title+'&content='+content
@@ -33,10 +34,9 @@ def dk(user,pas):
     else:
         driver.quit()
         print("success")
-        #token = '39ece89f3624407995a957b2d058b4d5' #在push+网站中可以找到
         title= '打卡执行情况' #改成你要的标题内容
         content ='执行成功' #改成你要的正文内容
         url = 'http://pushplus.hxtrip.com/customer/push/send?token='+token+'&title='+title+'&content='+content
         requests.get(url)
 if __name__ == "__main__":
-    dk('201677H0323', '08286050')
+    dk(s_name, s_pwd)
