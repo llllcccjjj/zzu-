@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import requests
 import os
-token=os.environ["SCKEY"]
+token=os.environ["PLUS_KEY"]
 def dk(user,pas):
     try:
         # 模拟浏览器打开网站
