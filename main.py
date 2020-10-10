@@ -1,13 +1,12 @@
 from selenium import webdriver
-import sys
 
 def dk(user,pas):
-    # try:
+    try:
     option = webdriver.ChromeOptions()
     option.add_argument('--headless')
     option.add_argument('--no-sandbox')
     driver = webdriver.Chrome(chrome_options=option)
-    # driver = webdriver.Chrome()
+    driver = webdriver.Chrome()
     driver.get("https://jksb.v.zzu.edu.cn/vls6sss/zzujksb.dll/first0")
     driver.implicitly_wait(10)
     driver.find_element_by_name('uid').send_keys(user)
@@ -20,15 +19,12 @@ def dk(user,pas):
     driver.find_element_by_xpath('//*[@id="bak_0"]/div[19]/div[4]').click()
     print("1111111111111")
 
-    # except:
-    #     driver.quit()
-    #     print("执行失败!")
-    # else:
-    #     driver.quit()
-    #     print("success")
-    #
+    except:
+        driver.quit()
+        print("执行失败!")
+    else:
+        driver.quit()
+        print("success")
+    
 if __name__ == "__main__":
-    # user = sys.argv[1]
-    # pas = sys.argv[2]
-    # dk(user,pas)
     dk('20165111949','3507342980')
