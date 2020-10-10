@@ -6,6 +6,8 @@ on:
   push:
   schedule:
     - cron: '0 21 * * *'
+env:
+  PLUS_KEY: ${{ secrets.PLUS_KEY }}
 
 jobs:
   bot:
