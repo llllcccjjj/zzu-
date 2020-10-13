@@ -2,6 +2,7 @@
 ## 步骤1：登录pushpius网站拿到token
 （1）打开网址 http://pushplus.hxtrip.com/
 ![image](https://github.com/llllcccjjj/zzu-/blob/main/images/1.png)
+
 （2）点击一对一推送，之后出现微信扫二维码扫描，之后到下面的界面
 ![image](https://github.com/llllcccjjj/zzu-/blob/main/images/2.png)
 拿到自己的Token号复制下来，下面需要用。
