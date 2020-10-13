@@ -20,7 +20,7 @@ def dk(user,pas):
         driver.find_element_by_name('smbtn').click()
         driver.implicitly_wait(10)
         driver.get(driver.find_element_by_id('zzj_top_6s').get_attribute('src'))
-        driver.find_element_by_xpath('//*[@id="bak_0"]/div[13]/div[3]/div[4]').click()
+        driver.find_element_by_xpath('//span[text()="本人填报"]').click()
         driver.implicitly_wait(10)
         driver.find_element_by_xpath('//span[text()="提交表格"]').click()
         print("1111111111111")
