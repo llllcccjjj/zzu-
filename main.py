@@ -40,3 +40,4 @@ def dk(user,pas):
         requests.get(url)
 if __name__ == "__main__":
     dk(s_name, s_pwd)
+    dk(s_name1,s_pwd1)
