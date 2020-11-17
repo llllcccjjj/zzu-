@@ -31,8 +31,6 @@ jobs:
               && sudo mv chromedriver /usr/local/bin/chromedriver \
               && sudo chmod +x /usr/local/bin/chromedriver \
               && chromedriver --version
-        - name: 'Get Date'
-          run: echo "::set-env name=REPORT_DATE::$(TZ=':Asia/Shenzhen' date '+%Y-%m-%d %T')"
         - name: 'AutoClick'
           env: 
               PLUS_KEY: ${{ secrets.PLUS_KEY }}
