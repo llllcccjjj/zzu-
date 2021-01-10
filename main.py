@@ -33,7 +33,7 @@ def dk(user,pas):
         driver.quit()
         print("success")
         title= '打卡执行情况' #改成你要的标题内容
-        content = '这是第'+sum+'次打卡‘ #改成你要的正文内容
+        content = '这是第'+sum'次打卡' #改成你要的正文内容
         url = 'http://pushplus.hxtrip.com/customer/push/send?token='+token+'&title='+title+'&content='+content
         requests.get(url)
 
