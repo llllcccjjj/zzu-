@@ -45,7 +45,7 @@ list1 = s_name.split("&")
 s_pwd = os.environ['S_PWD']  # 获取登陆密码信息
 s_pwd_num = int(s_pwd.count('&'))+1
 print("你提供了%d个登陆密码" % s_pwd_num)
-list2 = fruit_code.split("&")
+list2 = s_pwd.split("&")
 sum = 0
 
 if __name__ == "__main__":
