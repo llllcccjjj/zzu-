@@ -22,6 +22,7 @@ def dk(user,pas):
         driver.find_element_by_xpath('//span[text()="本人填报"]').click()
         driver.implicitly_wait(10)
         driver.find_element_by_xpath('//span[text()="提交表格"]').click()
+        global sum
         sum = sum +1
     except:
         driver.quit()
