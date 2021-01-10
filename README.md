@@ -1,6 +1,6 @@
 # zzu-签到打卡简易版本（目前支持多账号进行签到，多个账号，多个密码之间利用&分割）
-##两个账号例子 S_NAME里面的内容  20177720866&20177720877
-             S_PWD里面的内容   12324567&23434545
+## 两个账号例子 S_NAME里面的内容  20177720866&20177720877
+##             S_PWD里面的内容   12324567&23434545
 ## 步骤1：登录pushpius网站拿到token
 （1）打开网址 http://pushplus.hxtrip.com/
 ![image](https://github.com/llllcccjjj/zzu-/blob/main/images/1.png)
