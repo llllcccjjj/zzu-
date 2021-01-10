@@ -21,6 +21,7 @@ def dk(user,pas):
         driver.find_element_by_xpath('//span[text()="本人填报"]').click()
         driver.implicitly_wait(10)
         driver.find_element_by_xpath('//span[text()="提交表格"]').click()
+        sum = sum +1
     except:
         driver.quit()
         print("执行失败!")
@@ -32,7 +33,7 @@ def dk(user,pas):
         driver.quit()
         print("success")
         title= '打卡执行情况' #改成你要的标题内容
-        content ='执行成功' #改成你要的正文内容
+        content = '这是第'+sum+'次打卡‘ #改成你要的正文内容
         url = 'http://pushplus.hxtrip.com/customer/push/send?token='+token+'&title='+title+'&content='+content
         requests.get(url)
 
@@ -45,5 +46,7 @@ s_pwd = os.environ['S_PWD']  # 获取登陆密码信息
 s_pwd_num = int(s_pwd.count('&'))+1
 print("你提供了%d个登陆密码" % s_pwd_num)
 list2 = fruit_code.split("&")
+sum = 0
+
 if __name__ == "__main__":
     dk(list1[i],list2[i])
