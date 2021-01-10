@@ -28,14 +28,14 @@ def dk(user,pas):
         driver.quit()
         print("执行失败!")
         title= '打卡执行情况' #改成你要的标题内容
-        content = '第'+sum+'个号打卡失败'#改成你要的正文内容
+        content = '第'+str(sum)+'个号打卡失败'#改成你要的正文内容
         url = 'http://pushplus.hxtrip.com/customer/push/send?token='+token+'&title='+title+'&content='+content
         requests.get(url)
     else:
         driver.quit()
         print("success")
         title= '打卡执行情况' #改成你要的标题内容
-        content = '第'+sum+'个号打卡成功' #改成你要的正文内容
+        content = '第'+str(sum)+'个号打卡成功' #改成你要的正文内容
         url = 'http://pushplus.hxtrip.com/customer/push/send?token='+token+'&title='+title+'&content='+content
         requests.get(url)
 
