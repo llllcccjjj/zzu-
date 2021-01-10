@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import requests
 token=os.environ['PLUS_KEY'] #得到push_plus的token
+sum = 0
 def dk(user,pas):
     try:
         # 模拟浏览器打开网站
@@ -46,7 +47,7 @@ s_pwd = os.environ['S_PWD']  # 获取登陆密码信息
 s_pwd_num = int(s_pwd.count('&'))+1
 print("你提供了%d个登陆密码" % s_pwd_num)
 list2 = s_pwd.split("&")
-sum = 0
+
 
 if __name__ == "__main__":
     for i in range(s_name.count('&')+1):
