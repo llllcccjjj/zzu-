@@ -2,9 +2,7 @@ import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import requests
-token=os.environ['PLUS_KEY']
-s_name=os.environ['S_NAME']
-s_pwd=os.environ['S_PWD']
+token=os.environ['PLUS_KEY'] #得到push_plus的token
 def dk(user,pas):
     try:
         # 模拟浏览器打开网站
@@ -23,7 +21,6 @@ def dk(user,pas):
         driver.find_element_by_xpath('//span[text()="本人填报"]').click()
         driver.implicitly_wait(10)
         driver.find_element_by_xpath('//span[text()="提交表格"]').click()
-        print("1111111111111")
     except:
         driver.quit()
         print("执行失败!")
@@ -38,5 +35,15 @@ def dk(user,pas):
         content ='执行成功' #改成你要的正文内容
         url = 'http://pushplus.hxtrip.com/customer/push/send?token='+token+'&title='+title+'&content='+content
         requests.get(url)
+
+s_name = os.environ['S_NAME'] # 获取学号信息。
+s_name_num = int(s_name.count('&'))+1
+print("你输入了%d个学号" % s_name_num)
+list1 = s_name.split("&")
+
+s_pwd = os.environ['S_PWD']  # 获取登陆密码信息
+s_pwd_num = int(s_pwd.count('&'))+1
+print("你提供了%d个登陆密码" % s_pwd_num)
+list2 = fruit_code.split("&")
 if __name__ == "__main__":
-    dk(s_name, s_pwd)
+    dk(list1[i],list2[i])
