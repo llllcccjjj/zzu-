@@ -49,4 +49,5 @@ list2 = s_pwd.split("&")
 sum = 0
 
 if __name__ == "__main__":
-    dk(list1[i],list2[i])
+    for i in range(s_name.count('&')+1):
+        dk(list1[i],list2[i])
