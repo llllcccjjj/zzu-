@@ -37,7 +37,7 @@ def dk(user,pas):
         global sum
         sum = sum +1
         title= '打卡执行情况' #改成你要的标题内容
-        content = '第'+str(global sum)+'个号打卡成功' #改成你要的正文内容
+        content = '第'+str(sum)+'个号打卡成功' #改成你要的正文内容
         url = 'http://pushplus.hxtrip.com/customer/push/send?token='+token+'&title='+title+'&content='+content
         requests.get(url)
 
