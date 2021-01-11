@@ -3,9 +3,11 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import requests
 token=os.environ['PLUS_KEY'] #得到push_plus的token
-sum = 0
+sum = 0  #定义打卡账号的计数器
 def dk(user,pas):
     try:
+        global sum
+        sum = sum +1
         # 模拟浏览器打开网站
         chrome_options = Options()
         chrome_options.add_argument('--headless')
@@ -25,8 +27,6 @@ def dk(user,pas):
     except:
         driver.quit()
         print("执行失败!")
-        global sum
-        sum = sum +1
         title= '打卡执行情况' #改成你要的标题内容
         content = '第'+str(sum)+'个号打卡失败'#改成你要的正文内容
         url = 'http://pushplus.hxtrip.com/customer/push/send?token='+token+'&title='+title+'&content='+content
@@ -34,8 +34,6 @@ def dk(user,pas):
     else:
         driver.quit()
         print("success")
-        global sum
-        sum = sum +1
         title= '打卡执行情况' #改成你要的标题内容
         content = '第'+str(sum)+'个号打卡成功' #改成你要的正文内容
         url = 'http://pushplus.hxtrip.com/customer/push/send?token='+token+'&title='+title+'&content='+content
