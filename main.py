@@ -40,13 +40,13 @@ def dk(user,pas,key):
 if __name__ == "__main__":
     b = cookie.split('\n')
     for i in range(len(b)):
-    sum = b[i].count(';')
-    if sum == 1:# 补充token
-        dd = b[i] + ';None'
-        b[i] = dd
-    c = b[i].split(';')  # 针对每组b拆分
-    for m in range(len(c)):  # 拆分C，并赋值给name，pwd，token
-            'print(c[m])'
+        sum = b[i].count(';')
+        
+        if sum == 1:# 补充token
+            dd = b[i] + ';None'
+            b[i] = dd
+        c = b[i].split(';')  # 针对每组b拆分
+        for m in range(len(c)):  # 拆分C，并赋值给name，pwd，token
             if m == 0:
                 name = c[m]
                 print('name=', name, end="  ")
@@ -56,5 +56,4 @@ if __name__ == "__main__":
             if m == 2:
                 token = c[m]
                 print('token=', token)
-    dk(name,pwd,token)
-
+        dk(name,pwd,token)
