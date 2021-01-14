@@ -33,10 +33,5 @@ jobs:
               && chromedriver --version
         - name: 'AutoClick'
           env: 
-              PLUS_KEY: ${{ secrets.PLUS_KEY }}
-              S_NAME : ${{ secrets.S_NAME }}
-              S_PWD : ${{ secrets.S_PWD }}
-              PLUS_KEY1: ${{ secrets.PLUS_KEY1 }}
-              S_NAME1 : ${{ secrets.S_NAME1 }}
-              S_PWD1 : ${{ secrets.S_PWD1 }}
+              COOKIE: ${{ secrets.COOKIE }}
           run: python3 main.py
