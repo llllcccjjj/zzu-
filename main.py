@@ -3,17 +3,43 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import requests
 cookie=os.environ['COOKIE']
+
+
+def wh():
+    time = datetime.datetime.now().strftime('%H:%M')
+    sj = time.split(':')
+    if int(sj[0]) <= 8:
+        print('早上好')
+    else:
+        if int(sj[0]) <= 11:
+            whh = '上午好'
+        else:
+            if int(sj[0]) <= 13:
+                whh = '中午好'
+            else:
+                if int(sj[0]) <= 17:
+                    whh = '下午好'
+                else:
+                    if int(sj[0]) <= 24:
+                        whh = '晚上好'
+    return whh
+
+
 def ts(key):
     if len(key)<5:
-        print('账号',name,'未设置token，跳过推送')
+        print(xm,'未设置token，跳过推送')
     else:
-        tittle = '郑州大学每日打卡'  # 改成你要的标题内容
+        tittle = '{}，{}同学'.format(wh(),xm)
         url = 'http://pushplus.hxtrip.com/customer/push/send?token=' + key + '&title='+ tittle+'&content='+content
         requests.get(url)
+
+        
+        
 def dk(user,pas,key):
     global content
+    global xm
     try:
-        content = '失败'
+        content = '自动打卡失败，请您手动打卡'
         # 模拟浏览器打开网站
         chrome_options = Options()
         chrome_options.add_argument('--headless')
@@ -27,11 +53,12 @@ def dk(user,pas,key):
         driver.find_element_by_name('smbtn').click()
         driver.implicitly_wait(15)
         driver.get(driver.find_element_by_id('zzj_top_6s').get_attribute('src'))
+        xm=driver.find_element_by_xpath('//*[@id="bak_0"]/div[13]/div[3]/span[3]').text
         driver.find_element_by_xpath('//span[text()="本人填报"]').click()
         driver.implicitly_wait(15)
         driver.find_element_by_xpath('//span[text()="提交表格"]').click()
-        content = '成功'
-        print("1111111111111")
+        content = '今日打卡成功，祝您生活愉快'
+        print(xm,"今日打卡成功")
     except:
         ts(key)
     else:
