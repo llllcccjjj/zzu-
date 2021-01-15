@@ -3,7 +3,6 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import requests
 token=os.environ['PLUS_KEY'] #得到push_plus的token
-sum = 0  #定义打卡账号的计数器
 def dk(user,pas):
     try:
         global sum
@@ -23,19 +22,21 @@ def dk(user,pas):
         driver.get(driver.find_element_by_id('zzj_top_6s').get_attribute('src'))
         driver.find_element_by_xpath('//span[text()="本人填报"]').click()
         driver.implicitly_wait(10)
+        name = driver.find_element_by_xpath('//span[2]').text #根据网页元素得到打卡者的姓名，将其用于之后的推送
+        driver.implicitly_wait(10)
         driver.find_element_by_xpath('//span[text()="提交表格"]').click()
     except:
         driver.quit()
         print("执行失败!")
         title= '打卡执行情况' #改成你要的标题内容
-        content = '第'+str(sum)+'个号打卡失败'#改成你要的正文内容
+        content = name+'打卡失败'#改成你要的正文内容
         url = 'http://pushplus.hxtrip.com/customer/push/send?token='+token+'&title='+title+'&content='+content
         requests.get(url)
     else:
         driver.quit()
         print("success")
         title= '打卡执行情况' #改成你要的标题内容
-        content = '第'+str(sum)+'个号打卡成功' #改成你要的正文内容
+        content = name+'打卡成功' #改成你要的正文内容
         url = 'http://pushplus.hxtrip.com/customer/push/send?token='+token+'&title='+title+'&content='+content
         requests.get(url)
 
