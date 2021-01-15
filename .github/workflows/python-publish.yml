@@ -1,6 +1,7 @@
 name: 'GitHub Actions SCUT SIGN IN'
 
 on:
+  workflow_dispatch:
   watch:
     types: started
   push:
