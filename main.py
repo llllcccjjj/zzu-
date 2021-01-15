@@ -9,19 +9,19 @@ cookie=os.environ['COOKIE']
 def wh():
     time = datetime.datetime.now().strftime('%H:%M')
     sj = time.split(':')
-    if int(sj[0]) <= 8:
+    if int(sj[0])+8 <= 8:
         print('早上好')
     else:
-        if int(sj[0]) <= 11:
+        if int(sj[0])+8 <= 11:
             whh = '上午好'
         else:
-            if int(sj[0]) <= 13:
+            if int(sj[0])+8 <= 13:
                 whh = '中午好'
             else:
-                if int(sj[0]) <= 17:
+                if int(sj[0])+8 <= 17:
                     whh = '下午好'
                 else:
-                    if int(sj[0]) <= 24:
+                    if int(sj[0])+8 <= 24:
                         whh = '晚上好'
     return whh
 
