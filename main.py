@@ -5,8 +5,6 @@ import requests
 token=os.environ['PLUS_KEY'] #得到push_plus的token
 def dk(user,pas):
     try:
-        global sum
-        sum = sum +1
         # 模拟浏览器打开网站
         chrome_options = Options()
         chrome_options.add_argument('--headless')
