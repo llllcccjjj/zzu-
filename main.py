@@ -84,7 +84,8 @@ def ctq():
     drive.get('http://tianqi.2345.com/')
     drive.implicitly_wait(20)
     drive.find_element_by_id('js_searchInput').click()
-    drive.find_element_by_id('js_searchInput').send_keys('郑州市')
+    zss = '郑州市'
+    drive.find_element_by_id('js_searchInput').send_keys(zss.decode())
     drive.find_element_by_id('js_searchBtn').click()
     drive.implicitly_wait(20)
     wz = drive.find_element_by_xpath('/html/body/div[8]/div/div[1]/div[1]/em').text
@@ -93,7 +94,7 @@ def ctq():
     uu = vb.split('\n')
     jj = vn.split('~')
     print(wz,vb,vn)
-    content = zidian[d] + '今日天气:' + '\n' + uu[2] + '\n' + uu[3] + '' + uu[4] + '\n' + '最低温度' + jj[0] + '°C' + '\n' + '最高温度' + jj[1] + 'C' + '\n' + '祝您生活愉快~'
+    content = '今日天气:' + '\n' + uu[2] + '\n' + uu[3] + '' + uu[4] + '\n' + '最低温度' + jj[0] + '°C' + '\n' + '最高温度' + jj[1] + 'C' + '\n' + '祝您生活愉快~'
 
 
 
