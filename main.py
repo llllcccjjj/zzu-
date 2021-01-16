@@ -82,6 +82,7 @@ def ctq():
         drive = webdriver.Chrome('/usr/bin/chromedriver', chrome_options=chrome_options)
         drive.get('http://tianqi.2345.com/')
         drive.implicitly_wait(20)
+        drive.find_element_by_id('js_searchInput').click()
         drive.find_element_by_id('js_searchInput').send_keys(zidian[d])
         drive.find_element_by_id('js_searchBtn').click()
         drive.implicitly_wait(20)
