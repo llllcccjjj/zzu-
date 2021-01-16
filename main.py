@@ -113,11 +113,11 @@ if __name__ == "__main__":
         for m in range(len(c)):  # 拆分C，并赋值给name，pwd，token
             if m == 0:
                 name = c[m]
-                print('name=', name, end="  ")
+
             if m == 1:
                 pwd = c[m]
-                print('pwd=', pwd, end='  ')
+
             if m == 2:
                 token = c[m]
-                print('token=', token)
+
                 dk(name,pwd,token)
