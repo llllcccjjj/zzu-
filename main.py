@@ -1,4 +1,3 @@
-# -*- coding:UTF-8 -*-
 import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -77,29 +76,25 @@ def dk(user,pas,key):
         
 def ctq():
     global content
-    try:
-        chrome_options = Options()
-        chrome_options.add_argument('--headless')
-        chrome_options.add_argument('--no-sandbox')
-        chrome_options.add_argument('--disable-dev-shm-usage')
-        drive = webdriver.Chrome('/usr/bin/chromedriver', chrome_options=chrome_options)
-        drive.get('http://tianqi.2345.com/')
-        drive.implicitly_wait(20)
-        drive.find_element_by_id('js_searchInput').click()
-        drive.find_element_by_id('js_searchInput').send_keys(zidian[d].decode())
-        drive.find_element_by_id('js_searchBtn').click()
-        drive.implicitly_wait(20)
-        wz = drive.find_element_by_xpath('/html/body/div[8]/div/div[1]/div[1]/em').text
-        vb = drive.find_element_by_xpath('/html/body/div[9]/div[2]/div[1]/div[1]/div[2]/ul/li[1]/a[1]').text
-        vn = drive.find_element_by_xpath('/html/body/div[8]/div/div[1]/div[3]/ul/li[1]/a/em').text
-        uu = vb.split('\n')
-        jj = vn.split('~')
-        print(wz,vb,vn)
-        content = zidian[d] + '今日天气:' + '\n' + uu[2] + '\n' + uu[3] + '' + uu[4] + '\n' + '最低温度' + jj[
-            0] + '°C' + '\n' + '最高温度' + jj[1] + 'C' + '\n' + '祝您生活愉快~'
-    except:
-        content = '天气获取异常，暂不推送'
-        print (zidian[d])
+    chrome_options = Options()
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--disable-dev-shm-usage')
+    drive = webdriver.Chrome('/usr/bin/chromedriver', chrome_options=chrome_options)
+    drive.get('http://tianqi.2345.com/')
+    drive.implicitly_wait(20)
+    drive.find_element_by_id('js_searchInput').click()
+    drive.find_element_by_id('js_searchInput').send_keys(zidian[d].decode())
+    drive.find_element_by_id('js_searchBtn').click()
+    drive.implicitly_wait(20)
+    wz = drive.find_element_by_xpath('/html/body/div[8]/div/div[1]/div[1]/em').text
+    vb = drive.find_element_by_xpath('/html/body/div[9]/div[2]/div[1]/div[1]/div[2]/ul/li[1]/a[1]').text
+    vn = drive.find_element_by_xpath('/html/body/div[8]/div/div[1]/div[3]/ul/li[1]/a/em').text
+    uu = vb.split('\n')
+    jj = vn.split('~')
+    print(wz,vb,vn)
+    content = zidian[d] + '今日天气:' + '\n' + uu[2] + '\n' + uu[3] + '' + uu[4] + '\n' + '最低温度' + jj[0] + '°C' + '\n' + '最高温度' + jj[1] + 'C' + '\n' + '祝您生活愉快~'
+
 
 
 if __name__ == "__main__":
