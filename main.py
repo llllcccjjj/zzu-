@@ -59,7 +59,7 @@ def dk(user,pas,key):
         driver.find_element_by_xpath('//span[text()="本人填报"]').click()
         driver.implicitly_wait(15)
         d = driver.find_element_by_xpath('//*[@id="myvs_13b"]').get_attribute('value')
-        zidian = {'4101': '郑州市', '4102': '开封市', '4103': '洛阳市', '4104': '平顶山市', '4105': '安阳市', '4106': '鹤壁市',
+        zidian = {'4101': 'zhengzhoushi', '4102': '开封市', '4103': '洛阳市', '4104': '平顶山市', '4105': '安阳市', '4106': '鹤壁市',
                   '4107': '新乡市', '4108': '焦作市', '4109': '濮阳市', '4110': '许昌市', '4111': '漯河市', '4112': '三门峡市',
                   '4113': '南阳市', '4114': '商丘市', '4115': '信阳市', '4116': '周口市', '4117': '驻马店市', '4118': '济源市'}
         driver.find_element_by_xpath('//span[text()="提交表格"]').click()
