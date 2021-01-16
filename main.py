@@ -37,9 +37,10 @@ def ts(key):
         
         
 def dk(user,pas,key):
-    global zidian
+    #global zidian
     global xm
-    global d
+    global content
+    #global d
     try:
         content = '自动打卡失败，请您手动打卡'
         # 模拟浏览器打开网站
@@ -58,13 +59,13 @@ def dk(user,pas,key):
         xm=driver.find_element_by_xpath('//*[@id="bak_0"]/div[13]/div[3]/span[3]').text
         driver.find_element_by_xpath('//span[text()="本人填报"]').click()
         driver.implicitly_wait(15)
-        d = driver.find_element_by_xpath('//*[@id="myvs_13b"]').get_attribute('value')
-        zidian = {'4101': '郑州市', '4102': '开封市', '4103': '洛阳市', '4104': '平顶山市', '4105': '安阳市', '4106': '鹤壁市',
+        #d = driver.find_element_by_xpath('//*[@id="myvs_13b"]').get_attribute('value')
+        '''zidian = {'4101': '郑州市', '4102': '开封市', '4103': '洛阳市', '4104': '平顶山市', '4105': '安阳市', '4106': '鹤壁市',
                   '4107': '新乡市', '4108': '焦作市', '4109': '濮阳市', '4110': '许昌市', '4111': '漯河市', '4112': '三门峡市',
-                  '4113': '南阳市', '4114': '商丘市', '4115': '信阳市', '4116': '周口市', '4117': '驻马店市', '4118': '济源市'}
+                  '4113': '南阳市', '4114': '商丘市', '4115': '信阳市', '4116': '周口市', '4117': '驻马店市', '4118': '济源市'}'''
         driver.find_element_by_xpath('//span[text()="提交表格"]').click()
-        print(xm,"今日打卡成功")
-        ctq()
+        print(name,"今日打卡成功")
+        content = ''
     except:
         driver.quit()
         ts(key)
@@ -111,11 +112,11 @@ if __name__ == "__main__":
         for m in range(len(c)):  # 拆分C，并赋值给name，pwd，token
             if m == 0:
                 name = c[m]
-                print('name=', name, end="  ")
+
             if m == 1:
                 pwd = c[m]
-                print('pwd=', pwd, end='  ')
+
             if m == 2:
                 token = c[m]
-                print('token=', token)
+
                 dk(name,pwd,token)
