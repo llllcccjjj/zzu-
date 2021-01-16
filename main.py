@@ -1,4 +1,6 @@
 # -*- coding: UTF-8 -*-
+'unicodeKeyboard':True, #unicode编码输入
+'resetKeyboard':True #隐藏软键盘 –
 import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
