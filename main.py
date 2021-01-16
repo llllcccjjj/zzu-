@@ -79,20 +79,21 @@ def ctq():
         chrome_options.add_argument('--headless')
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-dev-shm-usage')
-        driver = webdriver.Chrome('/usr/bin/chromedriver', chrome_options=chrome_options)
-        driver.get('http://tianqi.2345.com/')
-        driver.implicitly_wait(20)
-        driver.find_element_by_id('js_searchInput').send_keys(zidian[d])
-        driver.find_element_by_id('js_searchBtn').click()
-        driver.implicitly_wait(20)
-        vb = driver.find_element_by_xpath('/html/body/div[9]/div[2]/div[1]/div[1]/div[2]/ul/li[1]/a[1]').text
-        vn = driver.find_element_by_xpath('/html/body/div[8]/div/div[1]/div[3]/ul/li[1]/a/em').text
+        drive = webdriver.Chrome('/usr/bin/chromedriver', chrome_options=chrome_options)
+        drive.get('http://tianqi.2345.com/')
+        drive.implicitly_wait(20)
+        drive.find_element_by_id('js_searchInput').send_keys(zidian[d])
+        drive.find_element_by_id('js_searchBtn').click()
+        drive.implicitly_wait(20)
+        vb = drive.find_element_by_xpath('/html/body/div[9]/div[2]/div[1]/div[1]/div[2]/ul/li[1]/a[1]').text
+        vn = drive.find_element_by_xpath('/html/body/div[8]/div/div[1]/div[3]/ul/li[1]/a/em').text
         uu = vb.split('\n')
         jj = vn.split('~')
         content = zidian[d] + '今日天气:' + '\n' + uu[2] + '\n' + uu[3] + '' + uu[4] + '\n' + '最低温度' + jj[
             0] + '°C' + '\n' + '最高温度' + jj[1] + 'C' + '\n' + '祝您生活愉快~'
     except:
         content = '天气获取异常，暂不推送'
+        print (zidian[d])
 
 
 if __name__ == "__main__":
