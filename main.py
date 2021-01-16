@@ -9,6 +9,7 @@ cookie=os.environ['COOKIE']
 def wh():
     time = datetime.datetime.now().strftime('%H:%M')
     sj = time.split(':')
+    whh = '早上好'
     if int(sj[0])+8 <= 8:
          whh = '早上好'
     else:
