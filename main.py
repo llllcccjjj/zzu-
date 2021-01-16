@@ -1,6 +1,4 @@
-# -*- coding: UTF-8 -*-
-'unicodeKeyboard':True, #unicode编码输入
-'resetKeyboard':True #隐藏软键盘 –
+
 import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -88,7 +86,7 @@ def ctq():
     drive.implicitly_wait(20)
     drive.find_element_by_id('js_searchInput').click()
     zss = '郑州市'
-    drive.find_element_by_id('js_searchInput').send_keys(zss.decode('UTF-8'))
+    drive.find_element_by_id('js_searchInput').send_keys(zss..encode('UTF-8').decode('UTF-8'))
     drive.find_element_by_id('js_searchBtn').click()
     drive.implicitly_wait(20)
     wz = drive.find_element_by_xpath('/html/body/div[8]/div/div[1]/div[1]/em').text
