@@ -30,15 +30,16 @@ def ts(key):
     if len(key)<5:
         print(xm,'未设置token，跳过推送')
     else:
-        tittle = '{}，{}同学'.format(wh(),xm)
+        tittle = '{}，{}同学，今日打卡☑'.format(wh(),xm)
         url = 'http://pushplus.hxtrip.com/customer/push/send?token=' + key + '&title='+ tittle+'&content='+content
         requests.get(url)
 
         
         
 def dk(user,pas,key):
-    global content
+    global zidian
     global xm
+    global d
     try:
         content = '自动打卡失败，请您手动打卡'
         # 模拟浏览器打开网站
@@ -57,13 +58,37 @@ def dk(user,pas,key):
         xm=driver.find_element_by_xpath('//*[@id="bak_0"]/div[13]/div[3]/span[3]').text
         driver.find_element_by_xpath('//span[text()="本人填报"]').click()
         driver.implicitly_wait(15)
+        d = driver.find_element_by_xpath('//*[@id="myvs_13b"]').get_attribute('value')
+        zidian = {'4101': '郑州市', '4102': '开封市', '4103': '洛阳市', '4104': '平顶山市', '4105': '安阳市', '4106': '鹤壁市',
+                  '4107': '新乡市', '4108': '焦作市', '4109': '濮阳市', '4110': '许昌市', '4111': '漯河市', '4112': '三门峡市',
+                  '4113': '南阳市', '4114': '商丘市', '4115': '信阳市', '4116': '周口市', '4117': '驻马店市', '4118': '济源市'}
         driver.find_element_by_xpath('//span[text()="提交表格"]').click()
-        content = '今日打卡成功，祝您生活愉快'
         print(xm,"今日打卡成功")
+        ctq()
     except:
+        driver.quit()
         ts(key)
     else:
+        driver.quit()
         ts(key)
+        
+def ctq():
+    try:
+        driver = webdriver.Chrome()
+        driver.get('http://tianqi.2345.com/')
+        driver.implicitly_wait(20)
+        driver.find_element_by_id('js_searchInput').send_keys(zidian[d])
+        driver.find_element_by_id('js_searchBtn').click()
+        driver.implicitly_wait(20)
+        vb = driver.find_element_by_xpath('/html/body/div[9]/div[2]/div[1]/div[1]/div[2]/ul/li[1]/a[1]').text
+        vn = driver.find_element_by_xpath('/html/body/div[8]/div/div[1]/div[3]/ul/li[1]/a/em').text
+        uu = vb.split('\n')
+        jj = vn.split('~')
+        content = zidian[d] + '今日天气:' + '\n' + uu[2] + '\n' + uu[3] + '' + uu[4] + '\n' + '最低温度' + jj[
+            0] + '°C' + '\n' + '最高温度' + jj[1] + 'C' + '\n' + '祝您生活愉快~'
+    except:
+        content = '天气获取异常，暂不推送'
+
 
 if __name__ == "__main__":
     b = cookie.split('\n')
