@@ -75,7 +75,6 @@ def dk(user,pas,key):
 def ctq():
     global content
     try:
-        driver = webdriver.Chrome()
         driver.get('http://tianqi.2345.com/')
         driver.implicitly_wait(20)
         driver.find_element_by_id('js_searchInput').send_keys(zidian[d])
