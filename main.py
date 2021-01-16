@@ -10,7 +10,7 @@ def wh():
     time = datetime.datetime.now().strftime('%H:%M')
     sj = time.split(':')
     if int(sj[0])+8 <= 8:
-        print('早上好')
+         whh = '早上好'
     else:
         if int(sj[0])+8 <= 11:
             whh = '上午好'
