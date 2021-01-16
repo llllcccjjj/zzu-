@@ -66,6 +66,7 @@ def dk(user,pas,key):
                   '4113': '南阳市', '4114': '商丘市', '4115': '信阳市', '4116': '周口市', '4117': '驻马店市', '4118': '济源市'}
         driver.find_element_by_xpath('//span[text()="提交表格"]').click()
         print(name,"今日打卡成功")
+        ctq()
  
     except:
         driver.quit()
