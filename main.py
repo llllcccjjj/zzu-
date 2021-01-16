@@ -115,5 +115,6 @@ if __name__ == "__main__":
 
             if m == 2:
                 token = c[m]
+                ctq()
 
-                dk(name,pwd,token)
+                #dk(name,pwd,token)
