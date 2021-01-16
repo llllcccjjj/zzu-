@@ -75,6 +75,11 @@ def dk(user,pas,key):
 def ctq():
     global content
     try:
+        chrome_options = Options()
+        chrome_options.add_argument('--headless')
+        chrome_options.add_argument('--no-sandbox')
+        chrome_options.add_argument('--disable-dev-shm-usage')
+        driver = webdriver.Chrome('/usr/bin/chromedriver', chrome_options=chrome_options)
         driver.get('http://tianqi.2345.com/')
         driver.implicitly_wait(20)
         driver.find_element_by_id('js_searchInput').send_keys(zidian[d])
