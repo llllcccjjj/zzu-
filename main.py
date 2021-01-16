@@ -89,6 +89,7 @@ def ctq():
         vn = drive.find_element_by_xpath('/html/body/div[8]/div/div[1]/div[3]/ul/li[1]/a/em').text
         uu = vb.split('\n')
         jj = vn.split('~')
+        print(vb,vn)
         content = zidian[d] + '今日天气:' + '\n' + uu[2] + '\n' + uu[3] + '' + uu[4] + '\n' + '最低温度' + jj[
             0] + '°C' + '\n' + '最高温度' + jj[1] + 'C' + '\n' + '祝您生活愉快~'
     except:
