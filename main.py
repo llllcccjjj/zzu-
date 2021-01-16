@@ -85,7 +85,7 @@ def ctq():
         drive.find_element_by_id('js_searchInput').send_keys(zidian[d])
         drive.find_element_by_id('js_searchBtn').click()
         drive.implicitly_wait(20)
-        wz = drive.find_element_by_xpath('/html/body/div[7]/div/div[1]/div[1]/em').text
+        wz = drive.find_element_by_xpath('/html/body/div[8]/div/div[1]/div[1]/em').text
         vb = drive.find_element_by_xpath('/html/body/div[9]/div[2]/div[1]/div[1]/div[2]/ul/li[1]/a[1]').text
         vn = drive.find_element_by_xpath('/html/body/div[8]/div/div[1]/div[3]/ul/li[1]/a/em').text
         uu = vb.split('\n')
