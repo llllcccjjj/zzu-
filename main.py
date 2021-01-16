@@ -1,3 +1,4 @@
+# -*- coding:UTF-8 -*-
 import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -37,10 +38,10 @@ def ts(key):
         
         
 def dk(user,pas,key):
-    #global zidian
+    global zidian
     global xm
     global content
-    #global d
+    global d
     try:
         content = '自动打卡失败，请您手动打卡'
         # 模拟浏览器打开网站
@@ -59,13 +60,13 @@ def dk(user,pas,key):
         xm=driver.find_element_by_xpath('//*[@id="bak_0"]/div[13]/div[3]/span[3]').text
         driver.find_element_by_xpath('//span[text()="本人填报"]').click()
         driver.implicitly_wait(15)
-        #d = driver.find_element_by_xpath('//*[@id="myvs_13b"]').get_attribute('value')
-        '''zidian = {'4101': '郑州市', '4102': '开封市', '4103': '洛阳市', '4104': '平顶山市', '4105': '安阳市', '4106': '鹤壁市',
+        d = driver.find_element_by_xpath('//*[@id="myvs_13b"]').get_attribute('value')
+        zidian = {'4101': '郑州市', '4102': '开封市', '4103': '洛阳市', '4104': '平顶山市', '4105': '安阳市', '4106': '鹤壁市',
                   '4107': '新乡市', '4108': '焦作市', '4109': '濮阳市', '4110': '许昌市', '4111': '漯河市', '4112': '三门峡市',
-                  '4113': '南阳市', '4114': '商丘市', '4115': '信阳市', '4116': '周口市', '4117': '驻马店市', '4118': '济源市'}'''
+                  '4113': '南阳市', '4114': '商丘市', '4115': '信阳市', '4116': '周口市', '4117': '驻马店市', '4118': '济源市'}
         driver.find_element_by_xpath('//span[text()="提交表格"]').click()
         print(name,"今日打卡成功")
-        content = ''
+ 
     except:
         driver.quit()
         ts(key)
@@ -84,7 +85,7 @@ def ctq():
         drive.get('http://tianqi.2345.com/')
         drive.implicitly_wait(20)
         drive.find_element_by_id('js_searchInput').click()
-        drive.find_element_by_id('js_searchInput').send_keys(zidian[d].decode('utf-8'))
+        drive.find_element_by_id('js_searchInput').send_keys(zidian[d])
         drive.find_element_by_id('js_searchBtn').click()
         drive.implicitly_wait(20)
         wz = drive.find_element_by_xpath('/html/body/div[8]/div/div[1]/div[1]/em').text
