@@ -73,6 +73,7 @@ def dk(user,pas,key):
         ts(key)
         
 def ctq():
+    global content
     try:
         driver = webdriver.Chrome()
         driver.get('http://tianqi.2345.com/')
