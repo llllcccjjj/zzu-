@@ -6,7 +6,7 @@ on:
     types: started
   push:
   schedule:
-    - cron: '5 16 * * *'
+    - cron: '55 22 * * *'
 jobs:
   bot:
     runs-on: ubuntu-latest
