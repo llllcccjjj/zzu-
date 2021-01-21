@@ -31,7 +31,7 @@ def ts(key):
     if len(key)<5:
         print(xm,'未设置token，跳过推送')
     else:
-        tittle = '{}，{}同学，今日打卡☑'.format(wh(),xm)
+        tittle = '{}，今日打卡☑'.format(wh())
         url = 'http://pushplus.hxtrip.com/customer/push/send?token=' + key + '&title='+ tittle+'&content='+content
         requests.get(url)
 
@@ -57,7 +57,7 @@ def dk(user,pas,key):
         driver.find_element_by_name('smbtn').click()
         driver.implicitly_wait(15)
         driver.get(driver.find_element_by_id('zzj_top_6s').get_attribute('src'))
-        xm=driver.find_element_by_xpath('//*[@id="bak_0"]/div[13]/div[3]/span[3]').text
+        #xm=driver.find_element_by_xpath('//*[@id="bak_0"]/div[13]/div[3]/span[3]').text
         driver.find_element_by_xpath('//span[text()="本人填报"]').click()
         driver.implicitly_wait(15)
         '''d = driver.find_element_by_xpath('//*[@id="myvs_13b"]').get_attribute('value')
