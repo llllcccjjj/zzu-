@@ -3,6 +3,8 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import requests
 import datetime
+from selenium.webdriver.support.select import Select
+import time
 cookie=os.environ['COOKIE']
 
 
@@ -52,7 +54,9 @@ def dk(user,pas,key):
         driver = webdriver.Chrome('/usr/bin/chromedriver', chrome_options=chrome_options)
         driver.get("https://jksb.v.zzu.edu.cn/vls6sss/zzujksb.dll/first0")
         driver.implicitly_wait(15)
-        driver.find_element_by_name('uid').send_keys(user)
+        'driver.find_element_by_name('uid').send_keys(user)'
+        'driver.find_element_by_name('upw').send_keys(pas)'
+        driver.find_element_by_xpath('//*[@id="mt_5"]/div[2]/div[3]/input').send_keys(user)
         driver.find_element_by_name('upw').send_keys(pas)
         driver.find_element_by_name('smbtn').click()
         driver.implicitly_wait(15)
@@ -62,14 +66,11 @@ def dk(user,pas,key):
         finally:
             driver.find_element_by_xpath('//span[text()="本人填报"]').click()
             driver.implicitly_wait(15)
-            driver.find_element_by_xpath('//span[text()="提交表格"]').click()
+            opt = driver.find_element_by_name('myvs_13')
+            Select(opt).select_by_value('g')
+            driver.find_element_by_xpath('//*[@id="bak_0"]/div[8]/div[2]/div[2]/div[2]/div[6]/div[4]').click()
             content = '今日打卡☑'
-            print(name,"今日打卡成功")
-        
-        '''d = driver.find_element_by_xpath('//*[@id="myvs_13b"]').get_attribute('value')
-        zidian = {'4101': 'zhengzhoushi', '4102': '开封市', '4103': '洛阳市', '4104': '平顶山市', '4105': '安阳市', '4106': '鹤壁市',
-                  '4107': '新乡市', '4108': '焦作市', '4109': '濮阳市', '4110': '许昌市', '4111': '漯河市', '4112': '三门峡市',
-                  '4113': '南阳市', '4114': '商丘市', '4115': '信阳市', '4116': '周口市', '4117': '驻马店市', '4118': '济源市'}'''
+            print(name,"今日打卡成功")      
     except:
         driver.quit()
         xm = ''
@@ -78,29 +79,6 @@ def dk(user,pas,key):
         driver.quit()
         ts(key)
         
-'''def ctq():
-    global content
-    chrome_options = Options()
-    chrome_options.add_argument('--headless')
-    chrome_options.add_argument('--no-sandbox')
-    chrome_options.add_argument('--disable-dev-shm-usage')
-    drive = webdriver.Chrome('/usr/bin/chromedriver', chrome_options=chrome_options)
-    drive.get('http://tianqi.2345.com/')
-    drive.implicitly_wait(20)
-    drive.find_element_by_id('js_searchInput').click()
-    zss = '郑州市'
-    drive.find_element_by_id('js_searchInput').send_keys(zss..encode('UTF-8').decode('UTF-8'))
-    drive.find_element_by_id('js_searchBtn').click()
-    drive.implicitly_wait(20)
-    wz = drive.find_element_by_xpath('/html/body/div[8]/div/div[1]/div[1]/em').text
-    vb = drive.find_element_by_xpath('/html/body/div[9]/div[2]/div[1]/div[1]/div[2]/ul/li[1]/a[1]').text
-    vn = drive.find_element_by_xpath('/html/body/div[8]/div/div[1]/div[3]/ul/li[1]/a/em').text
-    uu = vb.split('\n')
-    jj = vn.split('~')
-    print(wz,vb,vn)'''
-    #content = '今日天气:' + '\n' + uu[2] + '\n' + uu[3] + '' + uu[4] + '\n' + '最低温度' + jj[0] + '°C' + '\n' + '最高温度' + jj[1] + 'C' + '\n' + '祝您生活愉快~'
-
-
 
 if __name__ == "__main__":
     b = cookie.split('\n')
