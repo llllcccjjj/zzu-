@@ -54,8 +54,6 @@ def dk(user,pas,key):
         driver = webdriver.Chrome('/usr/bin/chromedriver', chrome_options=chrome_options)
         driver.get("https://jksb.v.zzu.edu.cn/vls6sss/zzujksb.dll/first0")
         driver.implicitly_wait(15)
-        'driver.find_element_by_name('uid').send_keys(user)'
-        'driver.find_element_by_name('upw').send_keys(pas)'
         driver.find_element_by_xpath('//*[@id="mt_5"]/div[2]/div[3]/input').send_keys(user)
         driver.find_element_by_name('upw').send_keys(pas)
         driver.find_element_by_name('smbtn').click()
