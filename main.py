@@ -51,7 +51,7 @@ def dk(user,pas,key):
         chrome_options.add_argument('--headless')
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-dev-shm-usage')
-        driver = webdriver.Chrome(executable_path='/usr/bin/chromedriver', options=chrome_options)
+        driver = webdriver.Chrome(executable_path='/usr/bin/chromedriver', chrome_options=options)
         driver.get("https://jksb.v.zzu.edu.cn/vls6sss/zzujksb.dll/first0")
         driver.implicitly_wait(15)
         driver.find_element(xpath('//*[@id="mt_5"]/div[2]/div[3]/input')).send_keys(user)
